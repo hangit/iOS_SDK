@@ -167,34 +167,11 @@ And Implement the DataService object and callback method
     [[DataService instance] getLocationsWithLocation:myLocation sessionKey:@"1234567890"
         completion:^(NSMutableArray *targetsArray, NSError *error) {
 
-       NSLog(@"%@", parametersArray);
        NSLog(@"%@", targetsArray);
-       NSLog(@"%@", offersArray);
-       NSLog(@"%@", redemptionsArray);
 
     }];
 
 This code has created a Hangit DataService object that will retrieve Campaign, Offer and Redemption data in raw JSON format within X meters from your users reported location. Each response is converted to a NSMutable Array.
-
-Consuming Hangit Offers
-
-In the following example we’ll show you how the Hangit SDK can provide your app with raw JSON Offers associated with a Campaign.
-
-Add a Hangit DataService object to your class
-
-In our example, we have used the ViewController.m class for simplicity; you can create the Observer on any class in your project.
-
-And Implement the DataService object and callback method
-
-    CLLocation * myLocation = [[CLLocation alloc] initWithLatitude:28.550 longitude:-81.400];
-
-    [[DataService instance] getOffersWithLocation:myLocation sessionKey:@"1234567890" 
-        completion:^(NSMutableArray *offersArray, NSError *error) {
-        DLog(@"%@", offersArray);
-
-    }];
-
-This code has created a Hangit DataService object that will reteive any Offers in raw JSON format for the Campaign associated with it based on location. Each response is converted to a NSMutable Array.
 
 Adding the Hangit Offers Map. Class Type: Apple MapKit
 

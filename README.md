@@ -58,39 +58,40 @@ Make this View Controller a SessionManagerDelegate
 
 And implement its methods:
 
-#import <HangitSDK/HangitSDK.h>
+    #import <HangitSDK/HangitSDK.h>
 
-@interface ViewController : UIViewController <SessionManagerDelegate>
+    @interface ViewController : UIViewController <SessionManagerDelegate>
 
-/* Hangit SessionManager */
-@property (nonatomic, strong) SessionManager *sessionManager;
+    /* Hangit SessionManager */
+    @property (nonatomic, strong) SessionManager *sessionManager;
 
-/* Hangit MapManager */
-@property (nonatomic, strong) MapManager *mapManager;
+    /* Hangit MapManager */
+    @property (nonatomic, strong) MapManager *mapManager;
 
-/* Hangit sessionKey Property */
-@property (nonatomic, retain) NSString * sessionKey;
+    /* Hangit sessionKey Property */
+    @property (nonatomic, retain) NSString * sessionKey;
 
-@property (nonatomic, strong) UIButton * chevron;
+    @property (nonatomic, strong) UIButton * chevron;
 
-@end
+    @end
 
 Add to viewDidLoad()
 
-_sessionManager = [SessionManager sharedInstance];
+    self.sessionManager = [SessionManager sharedInstance];
 
-_sessionManager.delegate = self;
+    self.sessionManager.delegate = self;
 
-//Push Notification To Users
-_sessionManager.presentNotifications = YES;
+    //Push Notification To Users
+    self.sessionManager.presentNotifications = YES;
 
-//Present Offers To Users
-_sessionManager.presentOfferView = YES;
+    //Present Offers To Users
+    self.sessionManager.presentOfferView = YES;
 
-//Present Offers Full Screen To Users
-_sessionManager.presentOfferFullScreen = NO;
+    //Present Offers Full Screen To Users
+    self.sessionManager.presentOfferFullScreen = NO;
 
-_sessionKey = [_sessionManager startSessionUsingLocation:@"YOURAPIKEY"];
+    self.sessionKey = [self.sessionManager startSessionUsingLocation:@"YOURAPIKEY"];
+    
 The _sessionKey property will contain the unique key for this app's session providing continued communication with the Hangit network allowing this user to receive offers specific to them and their location.
 Add iOS 8 Compatibility
 
@@ -99,8 +100,8 @@ For your app to work correctly with iOS 8 you have to add a new key to your proj
 In the project navigator, select your project.
 Select your projects Info.plist file
 Add the following key string pair to the file.
-<key>NSLocationAlwaysUsageDescription</key>
-<string>Uses background location</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Uses background location</string>
 The string can be empty, or defined by you the developer, the content is not important.
 
 In the project navigator, select your project.
@@ -119,39 +120,38 @@ In our example, we have used the ViewController.m class for simplicity, you can 
 
 First we’ll include the Hangit SDK Framework.
 
-#import <HangitSDK/HangitSDK.h>
+    #import <HangitSDK/HangitSDK.h>
 
 And Implement the NSNotificationCenter Observer and callback method
 
-[[NSNotificationCenter defaultCenter] addObserver:self
-        selector:@selector(locationNotification:)
-        name:@"hangitLocationNotification"
-        object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(locationNotification:)  name:@"hangitLocationNotification" object:nil];
 
-- (void) locationNotification:(NSNotification *)notification{
+    - (void) locationNotification:(NSNotification *)notification{
 
-    if ([notification object]) {
-        CLLocation * location = [[notification object] objectForKey:@"Location"];
-        NSLog(@"location callback: %@", location);
+        if ([notification object]) {
+          CLLocation * location = [[notification object] objectForKey:@"Location"];
+          NSLog(@"location callback: %@", location);
+        }
     }
-}
+
 This code has created an Observer that will monitor for location updates received in the Hangit SDK. You can consume these location updates in any ViewController in your app for your development location requirements and to send to our DataService to comsume Hangit JSON Campaigns & Offers.
 
 Requirement: Implement the didReceiveNotification callback to your AppDelegate.m
 
-/* Hangit AppDelegate NotificaitonManager Requirement */
-- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"hangitNotificationReceived" object:notification];
-}
-
-[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationReceived:)
-name:@"hangitNotificationReceived" object:nil];
-
-- (void) notificationReceived:(NSNotification *)notification {
-    if ([notification object]) {
-        NSLog(@"notification callback: %@", [notification object]);
+    /* Hangit AppDelegate NotificaitonManager Requirement */
+    - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"hangitNotificationReceived" object:notification];
     }
-}
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationReceived:)
+    name:@"hangitNotificationReceived" object:nil];
+
+    - (void) notificationReceived:(NSNotification *)notification {
+        if ([notification object]) {
+         NSLog(@"notification callback: %@", [notification object]);
+        }
+    }
+
 Consuming Hangit Campaigns
 
 In the following example we’ll show you how the Hangit SDK can provide your app with raw JSON Campaign data allowing you to use it in any way that meets your requirements.
@@ -162,22 +162,18 @@ In our example, we have used the ViewController.m class for simplicity; you can 
 
 And Implement the DataService object and callback method
 
-CLLocation * myLocation = [[CLLocation alloc] initWithLatitude:28.550 longitude:-81.400];
+    CLLocation * myLocation = [[CLLocation alloc] initWithLatitude:28.550 longitude:-81.400];
 
-[[DataService instance] getLocationsWithLocation:myLocation
-        sessionKey:@"1234567890"
-        completion:^(NSMutableArray *parametersArray,
-        NSMutableArray *targetsArray,
-        NSMutableArray *offersArray,
-        NSMutableArray *redemptionsArray,
-        NSError *error) {
+    [[DataService instance] getLocationsWithLocation:myLocation sessionKey:@"1234567890"
+        completion:^(NSMutableArray *targetsArray, NSError *error) {
 
-    NSLog(@"%@", parametersArray);
-    NSLog(@"%@", targetsArray);
-    NSLog(@"%@", offersArray);
-    NSLog(@"%@", redemptionsArray);
+       NSLog(@"%@", parametersArray);
+       NSLog(@"%@", targetsArray);
+       NSLog(@"%@", offersArray);
+       NSLog(@"%@", redemptionsArray);
 
-}];
+    }];
+
 This code has created a Hangit DataService object that will retrieve Campaign, Offer and Redemption data in raw JSON format within X meters from your users reported location. Each response is converted to a NSMutable Array.
 
 Consuming Hangit Offers
@@ -190,15 +186,14 @@ In our example, we have used the ViewController.m class for simplicity; you can 
 
 And Implement the DataService object and callback method
 
-CLLocation * myLocation = [[CLLocation alloc] initWithLatitude:28.550 longitude:-81.400];
+    CLLocation * myLocation = [[CLLocation alloc] initWithLatitude:28.550 longitude:-81.400];
 
-[[DataService instance] getOffersWithLocation:myLocation
-        sessionKey:@"1234567890"
+    [[DataService instance] getOffersWithLocation:myLocation sessionKey:@"1234567890" 
         completion:^(NSMutableArray *offersArray, NSError *error) {
+        DLog(@"%@", offersArray);
 
-    DLog(@"%@", offersArray);
+    }];
 
-}];
 This code has created a Hangit DataService object that will reteive any Offers in raw JSON format for the Campaign associated with it based on location. Each response is converted to a NSMutable Array.
 
 Adding the Hangit Offers Map. Class Type: Apple MapKit
@@ -211,57 +206,33 @@ In our example, we have used the ViewController.m class for simplicity; you can 
 
 And Implement the Hanigt MapManager
 
-mapManager = [[MapManager alloc] initWithNibName:@"MapManager"
-        bundle:[NSBundle bundleWithPath:[[NSBundle mainBundle]
-        pathForResource:@"HangitResources" ofType:@"bundle"]]];
+        self.mapManager = [[MapManager alloc] initWithNibName:@"MapManager" bundle:[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"HangitSDKResources" ofType:@"bundle"]]];
 
-/* 1. Add the map to the current view and define the frame parameters */
+        /* 1. Add the map to the current view and define the frame parameters */
 
-map.view.frame = CGRectMake(0,0,320,200);
+        self.mapManager.view.frame = CGRectMake(0,0,320,200);
 
-map.view.autoresizingMask = UIViewAutoresizingFlexibleWidth
-| UIViewAutoresizingFlexibleHeight;
+        self.mapManager.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 
-[self.view addSubview:map.view];
+        [self.view addSubview:self.mapManager.view];
+
 This code has placed the Offers Map on your view controller. You can decide what size you would like the map frame rect to be in order to fit with the design of your app.
-
-Adding the Hangit Offers List. Class Type: UITableView
-
-In the following example we’ll show you how to can create a Hangit Offers UITableView List to display all Offers based on the users current location.
-
-And Implement the Hanigt OfferListView
-
-offerListView = [[OfferListView alloc] initWithNibName:@"OfferListView"
-        bundle:[NSBundle bundleWithPath:[[NSBundle mainBundle]
-        pathForResource:@"HangitResources" ofType:@"bundle"]]];
-
-/* 1. Add the UITableView to the current view and define the frame parameters */
-
-offerListView.view.frame = CGRectMake(0,0,320,200);
-
-offerListView.view.autoresizingMask = UIViewAutoresizingFlexibleWidth
-| UIViewAutoresizingFlexibleHeight;
-
-[self.view addSubview:offerListView.view];
-This code has placed the Offers ListView on your view controller. You can decide what size you would like the table view frame rect to be in order to fit with the design of your app.
-
-Adding the Hangit Settings View. Class Type: UITableView
 
 In the following example we’ll show you how to can create a Hangit Settings UITableView to display the SDK settings.
 
-@property (nonatomic, strong) SettingsController * settingsController;
+    @property (nonatomic, strong) SettingsController * settingsController;
+
 And Implement the Hangit Settings View
 
-settingsController = [[SettingsController alloc] initWithNibName:@"SettingsController"
-    bundle:[NSBundle bundleWithPath:[[NSBundle mainBundle]
-    pathForResource:@"HangitResources" ofType:@"bundle"]]];
+    self.settingsController = [[SettingsController alloc] initWithNibName:@"SettingsController"
+        bundle:[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"HangitSDKResources" ofType:@"bundle"]]];
 
-/* 1. Add the UITableView to the current view and define the frame parameters */
+    /* 1. Add the UITableView to the current view and define the frame parameters */
 
-settingsController.view.frame = CGRectMake(0,0,320,200);
+    self.settingsController.view.frame = CGRectMake(0,0,320,200);
 
-settingsController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth
-| UIViewAutoresizingFlexibleHeight;
+    self.settingsController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 
-[self.view addSubview:settingsController.view];
+    [self.view addSubview:self.settingsController.view];
+
 This code has placed the Settings Controller on your view controller. You can decide what size you would like the table view frame rect to be in order to fit with the design of your app.

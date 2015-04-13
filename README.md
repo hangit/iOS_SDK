@@ -182,15 +182,15 @@ In our example, we have used the ViewController.m class for simplicity; you can 
 
 And Implement the Hanigt MapManager
 
-        self.mapManager = [[MapManager alloc] initWithNibName:@"MapManager" bundle:[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"HangitSDKResources" ofType:@"bundle"]]];
+    self.mapManager = [[MapManager alloc] initWithNibName:@"MapManager" bundle:[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"HangitSDKResources" ofType:@"bundle"]]];
 
-        /* 1. Add the map to the current view and define the frame parameters */
+    /* 1. Add the map to the current view and define the frame parameters */
 
-        self.mapManager.view.frame = CGRectMake(0,0,320,200);
+    self.mapManager.view.frame = CGRectMake(0,0,320,200);
 
-        self.mapManager.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.mapManager.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 
-        [self.view addSubview:self.mapManager.view];
+    [self.view addSubview:self.mapManager.view];
 
 This code has placed the Offers Map on your view controller. You can decide what size you would like the map frame rect to be in order to fit with the design of your app.
 

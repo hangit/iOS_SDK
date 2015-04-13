@@ -58,7 +58,7 @@ Make this View Controller a SessionManagerDelegate
 
 And implement its methods:
 
-#import <Hangit/Hangit.h>
+#import <HangitSDK/HangitSDK.h>
 
 @interface ViewController : UIViewController <SessionManagerDelegate>
 
@@ -68,12 +68,12 @@ And implement its methods:
 /* Hangit MapManager */
 @property (nonatomic, strong) MapManager *mapManager;
 
-/* Hangit ListView */
-@property (nonatomic, strong) OfferListView *offerListView;
-
 /* Hangit sessionKey Property */
 @property (nonatomic, retain) NSString * sessionKey;
-Add the sessionManager property and create it's sharedInstance.
+
+@property (nonatomic, strong) UIButton * chevron;
+
+@end
 
 Add to viewDidLoad()
 
@@ -119,7 +119,8 @@ In our example, we have used the ViewController.m class for simplicity, you can 
 
 First we’ll include the Hangit SDK Framework.
 
-<Hangit/Hangit.h>
+#import <HangitSDK/HangitSDK.h>
+
 And Implement the NSNotificationCenter Observer and callback method
 
 [[NSNotificationCenter defaultCenter] addObserver:self

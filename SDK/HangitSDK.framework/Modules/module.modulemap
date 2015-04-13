@@ -1,0 +1,6 @@
+framework module HangitSDK {
+  umbrella header "HangitSDK.h"
+
+  export *
+  module * { export * }
+}

@@ -178,6 +178,8 @@ In the following example we’ll show you how to can create a Hangit Offers Map 
 
 Add the MapModule to your class
 
+    @property (nonatomic, strong) MapManager * mapManager;
+
 In our example, we have used the ViewController.m class for simplicity; you can create the MapModule on any class in your project.
 
 And Implement the Hanigt MapManager

@@ -1,10 +1,9 @@
 # iOS_SDK
-Hangit iOS SDK and Test Project
-This SDK supports iOS7 and up. Background location is supported under iOS 8 and higher apps.
+Hangit iOS SDK and Test Project. This SDK supports iOS7 and up. Background location is supported under iOS 8 and higher apps.
 
 Latest version
 
-The latest version of the Hangit iOS SDK Framework is 2.0.0 (15) and was released March, 5th 2015.
+The latest version of the Hangit iOS SDK Framework is 0.1.0 and was released April, 13th 2015.
 
 Overview
 

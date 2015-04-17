@@ -27,8 +27,8 @@
     self.sessionKey = [self.sessionManager startSessionUsingLocation:@"YOURAPPID"];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(didEnterLocationCallBack:)
-                                                 name:@"hangitInBounds"
+                                             selector:@selector(messageViewedNotification:)
+                                                 name:@"hangitMessageViewed"
                                                object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -60,11 +60,11 @@
     
 }
 
-- (void)didEnterLocationCallBack:(NSNotification *)notification {
+- (void) messageViewedNotification:(NSNotification *)notification {
     
     if ([notification object]) {
         
-        NSLog(@"location callback: %@", [notification object]);
+        NSLog(@"message viewed callback: %@", [notification object]);
         
     }
     

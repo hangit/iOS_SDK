@@ -18,9 +18,7 @@
     UILocalNotification * localNotification;
     
     NSUserDefaults * prefs;
-    
-    OfferController * offerController;
-    
+        
     OfferFullViewController * offerFullViewController;
     
 }
@@ -35,8 +33,6 @@
 
 @property (strong, nonatomic) NSMutableArray * targets;
 
-@property (strong, nonatomic) NSMutableArray * campaigns;
-
 @property (strong, nonatomic) NSMutableArray * offers;
 
 @property (nonatomic) BOOL accuracyError;
@@ -50,8 +46,6 @@
 @property (nonatomic) BOOL presentNotifications;
 
 @property (nonatomic) BOOL presentOfferView;
-
-@property (nonatomic) BOOL presentOfferFullScreen;
 
 - (void)initLocation;
 

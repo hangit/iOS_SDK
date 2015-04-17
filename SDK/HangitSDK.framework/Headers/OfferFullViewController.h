@@ -16,23 +16,34 @@
 
 /* Offer properties */
 
-@property (nonatomic, retain) NSString * offer_id;
+@property (nonatomic, retain) NSString * eventId;
 
-@property (nonatomic, retain) NSString * offer_adURI;
+@property (nonatomic, retain) NSString * deviceEventId;
 
-@property (nonatomic, retain) NSString * offer_useitURI;
+@property (nonatomic, retain) NSString * mediaType;
 
-@property (nonatomic) float offer_lat;
+@property (nonatomic, retain) NSString * mediaURL;
 
-@property (nonatomic) float offer_lng;
+@property (nonatomic, retain) NSString * alertText;
 
-@property (nonatomic, retain) NSString * offer_miles;
 
-@property (nonatomic, retain) NSString * offer_headerText;
-
-@property (nonatomic, retain) NSString * offer_displayText;
-
-@property (nonatomic, retain) NSString * offer_campaignid;
+//@property (nonatomic, retain) NSString * offer_id;
+//
+//@property (nonatomic, retain) NSString * offer_adURI;
+//
+//@property (nonatomic, retain) NSString * offer_useitURI;
+//
+//@property (nonatomic) float offer_lat;
+//
+//@property (nonatomic) float offer_lng;
+//
+//@property (nonatomic, retain) NSString * offer_miles;
+//
+//@property (nonatomic, retain) NSString * offer_headerText;
+//
+//@property (nonatomic, retain) NSString * offer_displayText;
+//
+//@property (nonatomic, retain) NSString * offer_campaignid;
 
 
 @property (nonatomic, strong) IBOutlet UIWebView * adWebView;

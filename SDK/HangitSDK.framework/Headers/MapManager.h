@@ -10,13 +10,13 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import <AdSupport/ASIdentifierManager.h>
-#import "OfferController.h"
+#import "OfferFullViewController.h"
 
 @interface MapManager : UIViewController <MKMapViewDelegate> {
 
     NSUserDefaults * prefs;
     
-    OfferController * offerController;
+    OfferFullViewController * offerFullViewController;
     
 }
 
@@ -29,8 +29,6 @@
 @property (weak, nonatomic) IBOutlet UIButton * currentLocationButton;
 
 @property (weak, nonatomic) IBOutlet UIButton * refreshMapButton;
-
-@property (nonatomic, strong) NSMutableArray * trackPointArray;
 
 - (IBAction)gotoCurrentLocation:(id)sender;
 

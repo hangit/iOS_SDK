@@ -9,71 +9,41 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
-@class DataModel;
-
 @interface DataService : NSObject {
     
     NSUserDefaults * prefs;
     
 }
-
+/**
+ *  @author John Dutchak, 15-04-14 21:04:32
+ *
+ *  DataService Layer
+ *
+ *  @return an Instance class
+ */
 + (DataService *)instance;
-
-
-/* Data Service Methods */
 
 - (void)getLocationsWithLocation:(CLLocation *)location
                       sessionKey:(NSString *)sessionKey
-                      completion:(void (^)(NSMutableArray * parametersArray,
-                                           NSMutableArray * targetsArray,
-                                           NSMutableArray * offersArray,
-                                           NSMutableArray * redemptionsArray,
+                      completion:(void (^)(NSMutableArray * targetsArray,
                                            NSError * error))completion;
 
-- (void)getOffersWithLocation:(CLLocation *)location
-                   sessionKey:(NSString *)sessionKey
-                   completion:(void (^)(NSMutableArray * offersArray,
-                                        NSError * error))completion;
-
-- (void)getMOffersWithLocation:(CLLocation *)location
-                    sessionKey:(NSString *)sessionKey
-                        idType:(NSString *)idType
-                      targetId:(NSString *)targetId
-                         theid:(NSString *)theid
-                         refId:(NSString *)refId
-                    completion:(void (^)(NSMutableArray * offersArray,
+- (void)sendDeviceLinkWithEventId:(NSString *)eventId
+                          placeId:(NSString *)placeId
+                       sessionKey:(NSString *)sessionKey
+                    completion:(void (^)(NSMutableArray * places,
+                                         NSString * response,
                                          NSError * error))completion;
 
-- (void)getRegionsWithSessionKey:(NSString *)sessionKey
-                      completion:(void (^)(NSMutableArray * regionsArray,
-                                           NSError * error))completion;
+- (void)sendDeviceUpdateWithDeviceEventId:(NSString *)deviceEventId
+                         statusCode:(NSString *)statusCode
+                       sessionKey:(NSString *)sessionKey
+                       completion:(void (^)(NSString * response,
+                                            NSError * error))completion;
 
-- (void)acknowledgeWithAlertID:(NSString *)alertId
-                    sessionKey:(NSString *)sessionKey
-                    completion:(void (^)(NSString * response,
-                                         NSError * error))completion;
-
-- (void)offerStatusWithOfferID:(NSString *)offerId
-                    sessionKey:(NSString *)sessionKey
-                    statusCode:(NSString *)statusCode
-                    completion:(void (^)(NSString * response,
-                                         NSError * error))completion;
-
-- (void)setMaxNumberOfNotifications:(NSString *)maxNotifications
-                         sessionKey:(NSString *)sessionKey
-                         completion:(void (^)(NSString * response,
-                                              NSError * error))completion;
-
-- (void)setRatingWithCampaignId:(NSString *)campaignid
-                       ratingid:(NSString *)ratingid
-                     sessionKey:(NSString *)sessionKey
-                     completion:(void (^)(NSString * response,
-                                          NSError * error))completion;
-
-- (void)deleteDeviceWithSesionKey:(NSString *)sessionKey
-                       completion:(void(^)(NSString * response,
-                                           NSError * error)) completion;
-
+- (void)sendDeviceClearWithSessionKey:(NSString *)sessionKey
+                           completion:(void (^)(NSString * response,
+                                                NSError * error))completion;
 
 
 @end

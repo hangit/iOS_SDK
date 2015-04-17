@@ -47,6 +47,4 @@
 
 @property (nonatomic) BOOL presentOfferView;
 
-@property (nonatomic) BOOL presentOfferFullScreen;
-
 @end

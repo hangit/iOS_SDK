@@ -22,7 +22,6 @@
     self.sessionManager.delegate = self;
     self.sessionManager.presentNotifications = YES;
     self.sessionManager.presentOfferView = YES;
-    self.sessionManager.presentOfferFullScreen = NO;
     
     self.sessionKey = [self.sessionManager startSessionUsingLocation:@"YOURAPPID"];
     
@@ -31,15 +30,15 @@
                                                  name:@"hangitMessageViewed"
                                                object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(locationNotification:)
-                                                 name:@"hangitLocationNotification"
-                                               object:nil];
-
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(inBounds:)
-                                                 name:@"hangitInBounds"
-                                               object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(locationNotification:)
+//                                                 name:@"hangitLocationNotification"
+//                                               object:nil];
+//
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(inBounds:)
+//                                                 name:@"hangitInBounds"
+//                                               object:nil];
 
     
     

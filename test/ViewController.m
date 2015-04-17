@@ -24,7 +24,7 @@
     self.sessionManager.presentOfferView = YES;
     self.sessionManager.presentOfferFullScreen = NO;
     
-    self.sessionKey = [self.sessionManager startSessionUsingLocation:@"YOURAPPID"];
+    self.sessionKey = [self.sessionManager startSessionUsingLocation:@"37decebbc1c49f155c3fa3242476a9be"];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(messageViewedNotification:)
@@ -35,7 +35,12 @@
                                              selector:@selector(locationNotification:)
                                                  name:@"hangitLocationNotification"
                                                object:nil];
-    
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(inBounds:)
+                                                 name:@"hangitInBounds"
+                                               object:nil];
+
     
     
     [NSTimer scheduledTimerWithTimeInterval:5.0
@@ -65,6 +70,16 @@
     if ([notification object]) {
         
         NSLog(@"message viewed callback: %@", [notification object]);
+        
+    }
+    
+}
+
+- (void) inBounds:(NSNotification *)notification {
+    
+    if ([notification object]) {
+        
+        NSLog(@"in bounds area callback: %@", [notification object]);
         
     }
     

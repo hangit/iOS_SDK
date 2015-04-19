@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
-#import "OfferController.h"
 #import "OfferFullViewController.h"
 #import <CoreMotion/CoreMotion.h>
 

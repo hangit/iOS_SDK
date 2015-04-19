@@ -27,5 +27,4 @@ FOUNDATION_EXPORT const unsigned char HangitSDKVersionString[];
 #import <HangitSDK/DataService.h>
 #import <HangitSDK/ContentController.h>
 #import <HangitSDK/SubViewController.h>
-#import <HangitSDK/OfferController.h>
 #import <HangitSDK/OfferFullViewController.h>

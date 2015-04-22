@@ -23,7 +23,7 @@
     self.sessionManager.presentNotifications = YES;
     self.sessionManager.presentOfferView = YES;
     
-    self.sessionKey = [self.sessionManager startSessionUsingLocation:@"YOURAPPID"];
+    self.sessionKey = [self.sessionManager startSessionUsingLocation:@"37decebbc1c49f155c3fa3242476a9be"];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(messageViewedNotification:)

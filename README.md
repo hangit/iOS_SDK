@@ -3,7 +3,7 @@ Hangit iOS SDK and Test Project. This SDK supports iOS7 and up. Background locat
 
 Latest version
 
-The latest version of the Hangit iOS SDK Framework is 1.1.0 and was released April, 13th 2015.
+The latest version of the Hangit iOS SDK Framework is 1.1.4 and was released April, 22nd 2015.
 
 Overview
 

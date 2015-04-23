@@ -18,30 +18,43 @@
     
     [super viewDidLoad];
     
+    [self startHangit];
+    
+    
+}
+
+/* Hangit Location Module */
+
+
+- (void) startHangit
+{
     self.sessionManager = [SessionManager sharedInstance];
     self.sessionManager.delegate = self;
     self.sessionManager.presentNotifications = YES;
     self.sessionManager.presentOfferView = YES;
     
-    self.sessionKey = [self.sessionManager startSessionUsingLocation:@"YOURAPIKEY"];
+    self.sessionKey = [self.sessionManager startSessionUsingLocation:@"cc734c6a84373857f569dad4e06e8a32"];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(messageViewedNotification:)
-                                                 name:@"hangitMessageViewed"
-                                               object:nil];
+    //  Hangit: Callback when the notification is viewed
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(messageViewedNotification:)
+                                                     name:@"hangitMessageViewed"
+                                                   object:nil];
     
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(locationNotification:)
-//                                                 name:@"hangitLocationNotification"
-//                                               object:nil];
-//
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(inBounds:)
-//                                                 name:@"hangitInBounds"
-//                                               object:nil];
-
+    //  Hangit: Callback for recieving location events
+    //    [[NSNotificationCenter defaultCenter] addObserver:self
+    //                                             selector:@selector(locationNotification:)
+    //                                                 name:@"hangitLocationNotification"
+    //                                               object:nil];
+    
+    //  Hangit : Callback for Enter Target Area
+    //    [[NSNotificationCenter defaultCenter] addObserver:self
+    //                                             selector:@selector(inBounds:)
+    //                                                 name:@"hangitInBounds"
+    //                                               object:nil];
     
     
+    //  Hangit : Show the Map
     [NSTimer scheduledTimerWithTimeInterval:5.0
                                      target:self
                                    selector:@selector(showMap)
@@ -50,7 +63,6 @@
     
 }
 
-/* Hangit Location Module */
 
 - (void) locationNotification:(NSNotification *)notification{
     

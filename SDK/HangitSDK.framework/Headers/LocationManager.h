@@ -17,10 +17,10 @@
     UILocalNotification * localNotification;
     
     NSUserDefaults * prefs;
-        
-    OfferFullViewController * offerFullViewController;
     
 }
+
+@property (nonatomic, strong) OfferFullViewController * offerFullViewController;
 
 @property (retain, nonatomic) CMMotionActivityManager * motionActivityManager;
 

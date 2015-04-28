@@ -16,9 +16,9 @@
 
     NSUserDefaults * prefs;
     
-    OfferFullViewController * offerFullViewController;
-    
 }
+
+@property (nonatomic, strong) OfferFullViewController * offerFullViewController;
 
 @property (nonatomic, strong) NSTimer * updateTimer;
 

@@ -86,9 +86,6 @@ Add to viewDidLoad()
     //Present Offers To Users
     self.sessionManager.presentOfferView = YES;
 
-    //Present Offers Full Screen To Users
-    self.sessionManager.presentOfferFullScreen = NO;
-
     self.sessionKey = [self.sessionManager startSessionUsingLocation:@"YOURAPIKEY"];
     
 The _sessionKey property will contain the unique key for this app's session providing continued communication with the Hangit network allowing this user to receive offers specific to them and their location.

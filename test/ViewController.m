@@ -33,7 +33,7 @@
     self.sessionManager.presentNotifications = YES;
     self.sessionManager.presentOfferView = YES;
     
-    self.sessionKey = [self.sessionManager startSessionUsingLocation:@"cc734c6a84373857f569dad4e06e8a32"];
+    self.sessionKey = [self.sessionManager startSessionUsingLocation:@"YOURAPIKEY"];
     
     //  Hangit: Callback when the notification is viewed
         [[NSNotificationCenter defaultCenter] addObserver:self

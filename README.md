@@ -136,7 +136,17 @@ Requirement: Implement the didReceiveNotification callback to your AppDelegate.m
 
     /* Hangit AppDelegate NotificaitonManager Requirement */
     - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+
+    //OPTIONAL ** use a timer delay for notificaiton if you have slow loading startup view controller(s)
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 5.0 * NSEC_PER_SEC);
+    
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        
         [[NSNotificationCenter defaultCenter] postNotificationName:@"hangitNotificationReceived" object:notification];
+        
+    });
+
+
     }
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationReceived:)

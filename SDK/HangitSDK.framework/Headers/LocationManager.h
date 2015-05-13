@@ -18,9 +18,6 @@
     
     NSUserDefaults * prefs;
     
-    BOOL IsDwelling;
-    NSString * startDwellTimeStamp;
-    NSString * stopDwellTimeStamp;
 }
 
 @property (nonatomic, strong) OfferFullViewController * offerFullViewController;

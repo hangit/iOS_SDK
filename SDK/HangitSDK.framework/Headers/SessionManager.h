@@ -41,6 +41,8 @@
 
 - (NSString *)startSessionUsingLocation:(NSString *)apiKey;
 
+- (void)stopSession;
+
 - (BOOL)checkNetworkStatus:(NSNotification *)notif;
 
 @property (nonatomic) BOOL presentNotifications;

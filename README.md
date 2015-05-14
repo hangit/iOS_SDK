@@ -3,7 +3,7 @@ Hangit iOS SDK and Test Project. This SDK supports iOS7 and up. Background locat
 
 Latest version
 
-The latest version of the Hangit iOS SDK Framework is 1.2.0 and was released May, 13th 2015.
+The latest version of the Hangit iOS SDK Framework is 1.2.1 and was released May, 13th 2015.
 
 Overview
 
@@ -87,6 +87,9 @@ Add to viewDidLoad()
     self.sessionManager.presentOfferView = YES;
 
     self.sessionKey = [self.sessionManager startSessionUsingLocation:@"YOURAPIKEY"];
+
+    //Optionally you can stop the Hangit session in your app using the following method at anytime to disable location tracking and notifications
+    [self.sessionManager stopSession];
     
 The _sessionKey property will contain the unique key for this app's session providing continued communication with the Hangit network allowing this user to receive offers specific to them and their location.
 Add iOS 8 Compatibility
@@ -137,7 +140,7 @@ Requirement: Implement the didReceiveNotification callback to your AppDelegate.m
     /* Hangit AppDelegate NotificaitonManager Requirement */
     - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
 
-    //OPTIONAL ** use a timer delay for notificaiton if you have slow loading startup view controller(s)
+    //OPTIONAL ** use a timer delay for notification if you have slow loading startup view controller(s)
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 5.0 * NSEC_PER_SEC);
     
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){

@@ -1,226 +1,338 @@
-# iOS_SDK
-Hangit iOS SDK and Test Project. This SDK supports iOS7 and up. Background location is supported under iOS 8 and higher apps.
 
-Latest version
+<h1>HangIt iOS SDK</h1>
 
-The latest version of the Hangit iOS SDK Framework is 1.2.1 and was released May, 13th 2015.
+<h2>Overview</h2>
 
-Overview
+You can use the HangIt platform to leverage location awareness for your iOS application.  
 
-This document shows you a quick way to start using the Hangit iOS SDK Framework for location-aware apps. You will find code examples for core features, and best practices that developers should follow.
+The HangIt SDK monitors and records device location and triggers events when the boundary of a targeted location is crossed.
 
-Installing the iOS SDK Framework
+The SDK also delivers local push notifications and displays rich messages you have configured in HangIt's Campaign Portal.
 
-In this section we’ll run through the steps to add our Framework to your Xcode project.
+The SDK allows your application to observe these events and deep link back into the application.
 
-You will not be able to monitor changes for CoreMotion using the Simulator, you will need to test and run your project on a real device.
-If this is your first time out with Xcode and iOS App development, then we recommend you read Apple’s introductory guide.
+![enter image description here](https://lh3.googleusercontent.com/-3v0YFIrrfVY/VUEys0RemPI/AAAAAAAAA3g/TSzazAEXpT8/s0/hangit.png "hangit.png")
 
-Download the SDK Framework files
+There are three basic implementation of the Hangit SDK. Each provides a different level of customization for the developer.
 
-Clone the git repo - git clone https://github.com/hangit/iOS_SDK.git
+ 1. Full Message Flow ** RECOMMENDED **
+ 2. Alert Notification Only
+ 3. Capture the Trigger on the Location Event Only
 
-Change to Example folder - cd iOS_SDK
+![enter image description here](https://lh3.googleusercontent.com/-Xsf4iDY30-o/VVDwY9-VDSI/AAAAAAAAA4Y/Gp6B51XOvII/s0/Flow+-+Full+Service.png "Flow - Full Service.png")
 
-Open the test.xcodeproj and run
+The flow chart above illustrates a full message flow which presents a local event trigger to your app, initiates a local push notification to the user, and loads the "rich" Hangit event or offer.  It is also possible to only implement the event trigger and local push notification, or simply the event notification to the app.  
 
-To use in your own app. Add the SDK Framework files to your project found under the SDK folder.
+This SDK will cover the fastest way to get started with Hangit using event trigger only, and will also cover the full message flow in later sections.
 
-Create a new project in Xcode and give it a name.
-Create an empty folder in your project directory.
-Copy the resource bundle HangitResources.bundle to your new folder.
-Choose File > Add Files to Your ProjectName.
-Select your new folder containing the SDK files
-Drag the Hangit.framework file to your Embedded Binaries section under General for your projects target.
-Add file to embedded binaries
 
-Link the SDK files to your project
+<h2> Getting Started</h2>
 
-In XCode 6, the SDK will be linked automatically to your project.
+>**Latest Version:** The latest version of the HangIt iOS SDK Framework is 1.2.1 and was released May, 13th 2015.
 
-If you need to manually link the files, or just check that they are there:
+>**Warning:** You will not be able to monitor changes for CoreMotion using the Simulator.  You will need to test and run your project on a real device.
 
-In the project navigator, select your project.
-Click Build Phases -> Link Binary With Libraries.
-Check that Hangit.framework is already added, if it isn’t:
-Click the Add button (+).
-Select Hangit.framework and click Add.
-Your project now references the Hangit SDK Framework and your installation is complete.
+In this section we’ll run through the steps to add our Framework to your Xcode project.  If this is your first time out with Xcode and iOS App development, we recommend you read Apple’s [introductory guide](https://developer.apple.com/library/ios/referencelibrary/GettingStarted/RoadMapiOS/index.html).
 
-Adding objects and methods
+There are two possible paths for downloading and installing the HangIt SDK framework for iOS.
 
-Now we can start using objects and methods from the SDK. First we need to establish a session with your app and the SDK.
+ - Clone the HangIt SDK Framework, or
+ - Use CocoaPods
 
-Go to your ViewController.h and can add the following. The process is simple and all our objects are modular and configurable to fit your apps design pattern.
+>**Note:** CocoaPod installation is available for iOS 8+ only.
 
-Make this View Controller a SessionManagerDelegate
+<h3>Installing the iOS SDK Framework for Apps Supporting iOS 7+</h3>
 
-And implement its methods:
+<h4>Clone the HangIt SDK Framework</h4>
 
-    #import <HangitSDK/HangitSDK.h>
+ - Clone the git repo - git clone https://github.com/hangit/iOS_SDK.git
+ - Change to the project folder - cd iOS_SDK/
+ - Run the Test project.
 
-    @interface ViewController : UIViewController <SessionManagerDelegate>
+<h4>Add the SDK Framework files to your project</h4>
 
-    /* Hangit SessionManager */
-    @property (nonatomic, strong) SessionManager *sessionManager;
+ - Create a new project in Xcode and give it a name.
+ - Create an empty folder in your project directory.
+ - Copy the resource bundle **HangitResources.bundle** to your new folder.
+ - Choose **File > Add Files** to Your ProjectName.
+ - Select your new folder containing the SDK files
+ - Drag the Hangit.framework file to your Embedded Binaries section under **General** for your projects target.
 
-    /* Hangit MapManager */
-    @property (nonatomic, strong) MapManager *mapManager;
 
-    /* Hangit sessionKey Property */
-    @property (nonatomic, retain) NSString * sessionKey;
+<h4>Link the SDK files to your project</h4>
 
-    @property (nonatomic, strong) UIButton * chevron;
+>**Note:** In XCode 6, the SDK will be linked automatically to your project.
 
-    @end
+If you need to manually link the files, or just check that they are there, you can use the following procedure.
 
-Add to viewDidLoad()
+ - In the project navigator, select your project.
+ - Click **Build Phases -> Link Binary With Libraries.**
+ - Check that Hangit.framework is already added, 
 
-    self.sessionManager = [SessionManager sharedInstance];
+if it isn’t:  
 
-    self.sessionManager.delegate = self;
+ - Click the **Add button (+).**
+ - Select Hangit.framework 
+ - Click **Add.**
 
-    //Push Notification To Users
-    self.sessionManager.presentNotifications = YES;
+Your project now references the HangIt SDK Framework and your installation is complete.
 
-    //Present Offers To Users
-    self.sessionManager.presentOfferView = YES;
 
-    self.sessionKey = [self.sessionManager startSessionUsingLocation:@"YOURAPIKEY"];
 
-    //Optionally you can stop the Hangit session in your app using the following method at anytime to disable location tracking and notifications
-    [self.sessionManager stopSession];
-    
-The _sessionKey property will contain the unique key for this app's session providing continued communication with the Hangit network allowing this user to receive offers specific to them and their location.
-Add iOS 8 Compatibility
+<h3>Installing the iOS SDK Framework for Apps Supporting iOS 8+</h3>
 
-For your app to work correctly with iOS 8 you have to add a new key to your project’s plist file.
+There are two possible paths for downloading and installing the HangIt SDK framework for iOS 8+.
 
-In the project navigator, select your project.
-Select your projects Info.plist file
-Add the following key string pair to the file.
-    <key>NSLocationAlwaysUsageDescription</key>
-    <string>Uses background location</string>
-The string can be empty, or defined by you the developer, the content is not important.
+ - Clone the HangIt SDK Framework, or
+ - Use CocoaPods
 
-In the project navigator, select your project.
-Select your projects Target and choose Capabilities
-Turn on Background Modes.
-Select "Location updates" and "Background fetch"
-iOS 8 compatability is now complete.
+The following is also required for the iOS 8 install
 
-Receiving SDK Location Updates
+- plist
+- Project Capabilities
 
-In the following example we’ll show you how the Hangit SDK can provide your app with the device's location updates. This will save time from implementing your own location manager.
+<h4>Clone the HangIt SDK Framework</h4>
 
-Add an Observer to your class
+See section "Clone the HangIt SDK Framework" above.
 
-In our example, we have used the ViewController.m class for simplicity, you can create the Observer on any class in your project.
+<h4>CocoaPods</h4>
 
-First we’ll include the Hangit SDK Framework.
+ - Create or edit your Podfile
+ - Add this to your Podfile: pod 'Hangit'
+ - Run pod install
+ - Open the new CocoaPods workspace for your project and jump to the "Implementations" section below.
 
-    #import <HangitSDK/HangitSDK.h>
+<h4>plist</h4>
 
-And Implement the NSNotificationCenter Observer and callback method
+For your app to work correctly with iOS 8 you need to add a new key to your project's plist file, and you need to turn on **Background Modes** in Project **Capabilities**
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(locationNotification:)  name:@"hangitLocationNotification" object:nil];
+To add a new key to your project’s plist file.
 
-    - (void) locationNotification:(NSNotification *)notification{
+ - In the project navigator, select your project.
+ - Select your projects Info.plist file
 
-        if ([notification object]) {
-          CLLocation * location = [[notification object] objectForKey:@"Location"];
-          NSLog(@"location callback: %@", location);
-        }
+```
+<key>NSLocationAlwaysUsageDescription</key>
+<string>Uses background location</string>
+```
+
+>The string can be empty, or defined by you the developer, the content is not important.
+
+<h4>Project Capabilities</h4>
+
+To properly setup Project capabilities for iOS
+
+ - In the project navigator, select your project.
+ - Select your projects **Target** and choose **Capabilities**
+ - Turn on Background Modes.
+ - Select **"Location updates"** and **"Background fetch"**
+
+
+----------
+
+
+<h1>Implementations</h1>
+
+Regardless of which implementation you choose, you will need to establish a session with the Hangit SDK.  In this tutorial we will use custom sub-class `ViewController.h` although any custom sub-class will do.  You can then configure the class objects and methods to enable only the features you choose (eg. local push notifications, rich messages).
+
+
+>**Note:** Use the HangIt API key generated when you registered on the HangIt Portal (portal.hangit.com) to enable communication between the app and the HangIt service.
+
+
+<h2>Session Manager Delegate</h2>
+
+To establish the session you will create a custom sub-class of `UIViewController` called `SessionManagerDelegate`.  In this tutorial we will simply re-use the sub-class `ViewController.h` for this purpose.
+
+You will need to implement the `sessionManager` method of the custom sub-class as listed below.  You will also perform additional initialization of this method using the `viewDidLoad()` function.
+
+Import the framework using the following code:
+
+```
+#import <HangitSDK/HangitSDK.h>
+```
+
+```objective-c
+@interface ViewController : UIViewController <SessionManagerDelegate>
+
+/* Hangit SessionManager */
+@property (nonatomic, strong) SessionManager *sessionManager;
+
+/* Hangit MapManager ** Optional, if you want to use the Map feature ** */
+@property (nonatomic, strong) MapManager *mapManager;
+
+/* Hangit sessionKey Property */
+@property (nonatomic, retain) NSString * sessionKey;
+```
+
+Declare `SessionManager` inside the [viewDidLoad](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIViewController_Class/) function.  Note that `startSessionUsingLocation:@"YOURAPIKEY"` enables your app to communicate with the HangIt service, and requires your API authentication key.
+
+
+This is where you configure the behaviour of the implementation.  To only use the location event trigger, set the parameters in the code block below to **NO**.  You can add the lines of code within your [AppDelegate](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplicationDelegate_Protocol/) or [MainViewController](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIViewController_Class/).
+
+```objective-c
+self.sessionManager = [SessionManager sharedInstance];
+
+self.sessionManager.delegate = self;
+
+//Local Push Notification To Users
+self.sessionManager.presentNotifications = YES; // If you DO NOT want to display the Alert Notification, Set to NO
+
+//Present Rich Messages To Users
+self.sessionManager.presentOfferView = YES;  // If you DO NOT want to display the Rich Message, set to NO
+
+self.sessionKey = [self.sessionManager startSessionUsingLocation:@"YOURAPIKEY"];
+
+//Optionally you can stop the Hangit session in your app using the following method at anytime to disable location tracking and notifications
+
+[self.sessionManager stopSession];
+
+```
+<h2>Location Event Triggers</h2>
+
+You can setup your app to receive location event triggers from the SDK.  The HangIt SDK monitors for changes in device location and sends notification to your app.  
+
+To receive location updates from the HangIt SDK the following is required:
+
+ - include the SDK framework, as described previously.
+ - implement the notification method and callback method
+
+<h3>Implementing the Methods</h3>
+
+For the purpose of this example, we will implement methods for the `ViewController.m` sub-class.  You can create your own custom sub-class if you like.
+
+You will implement an Observer method `NSNotificationCenter` that will consume location update notifications received by the HangIt SDK, as illustrated below:
+
+```objective-c
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(locationNotification:) name:@"hangitLocationNotification" object:nil];
+
+- (void) locationNotification:(NSNotification *)notification{
+
+    if ([notification object]) {
+        CLLocation * location = [[notification object] objectForKey:@"Location"];
+        NSLog(@"location callback: %@", location);
     }
+}
+```
 
-This code has created an Observer that will monitor for location updates received in the Hangit SDK. You can consume these location updates in any ViewController in your app for your development location requirements and to send to our DataService to comsume Hangit JSON Campaigns & Offers.
+>**Congratulations!** You are now using the Hangit Location Services. You manage your location events within [Hangit Portal](http://portal.hangit.com).
 
-Requirement: Implement the didReceiveNotification callback to your AppDelegate.m
+<h1>Other Hangit SDK Services </h1>
+The Hangit SDK Provides other value-added services in support of your application needs. These are optional and additive features.
 
-    /* Hangit AppDelegate NotificaitonManager Requirement */
-    - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
 
-    //OPTIONAL ** use a timer delay for notification if you have slow loading startup view controller(s)
+<h2>Local Push Notifications</h2>
+
+If you leverage the Hangit location updates to send push notifications to your users, you can leverage the Hangit SDK, to implement a callback method `didreceiveNotification` in your app's `AppDelegate.m` class.  It will receive the callback that a HangIt location notification has been consumed.  See the sample below for the implementation:
+
+```objective-c
+/* Hangit AppDelegate NotificationManager Requirement */
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+
+//OPTIONAL ** use a timer delay for notificaiton if you have slow loading startup view controller(s)
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 5.0 * NSEC_PER_SEC);
-    
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+
         [[NSNotificationCenter defaultCenter] postNotificationName:@"hangitNotificationReceived" object:notification];
-        
+
     });
+}
+```
 
 
+<h2>Receiving Alert Notification Callback</h2>
+
+You may want to have a deep-link back into the application after an alert notification is presented. This callback feature allows you to receive the event notification and the notification object.
+
+
+<h3>Implementing the Methods</h3>
+```objective-c
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(messageViewedNotification:) name:@"hangitMessageViewed" object:nil];
+
+- (void) messageViewedNotification:(NSNotification *)notification {
+    
+    if ([notification object]) {
+        
+        NSLog(@"message viewed callback: %@", [notification object]);
+        
     }
+}
+```
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationReceived:)
-    name:@"hangitNotificationReceived" object:nil];
 
-    - (void) notificationReceived:(NSNotification *)notification {
-        if ([notification object]) {
-         NSLog(@"notification callback: %@", [notification object]);
-        }
-    }
 
-Consuming Hangit Campaigns
+<h2>Consuming HangIt Data</h2>
 
-In the following example we’ll show you how the Hangit SDK can provide your app with raw JSON Campaign data allowing you to use it in any way that meets your requirements.
+You can setup your app to consume HangIt events and offers via the SDK.
 
-Add a Hangit DataService object to your class
+HangIt campaigns include events tied to specific location or "place" that can include rich messages to the user and deep links back to your apps.  HangIt campaigns are provisioned in the HangIt Portal.
 
-In our example, we have used the ViewController.m class for simplicity; you can create the Observer on any class in your project.
+HangIt offers are rich messages which can be presented to users when they enter the location bounding area.  The HangIt rich messages are provisioned in the HangIt portal and consist of images, videos or html5 micro sites.
 
-And Implement the DataService object and callback method
+The campaigns and messages are delivered to the app as raw JSON formatted in NSMutable Arrays.
 
-    CLLocation * myLocation = [[CLLocation alloc] initWithLatitude:28.550 longitude:-81.400];
+To consume HangIt campaigns and offers, the following is required:
 
-    [[DataService instance] getLocationsWithLocation:myLocation sessionKey:@"1234567890"
-        completion:^(NSMutableArray *targetsArray, NSError *error) {
+ - Add a `dataService` sub-object to your `ViewController.m` or other custom sub-class you define
+ - Implement the callback method
 
-       NSLog(@"%@", targetsArray);
+<h3>Implementing the Method</h3>
 
-    }];
+To setup your app to consume locations, add the `dataservice` sub-object to `ViewController.m` and implement the callback method as below:
 
-This code has created a Hangit DataService object that will retrieve Campaign, Offer and Redemption data in raw JSON format within X meters from your users reported location. Each response is converted to a NSMutable Array.
+```objective-c
+CLLocation * myLocation = [[CLLocation alloc] initWithLatitude:28.550 longitude:-81.400];
 
-Adding the Hangit Offers Map. Class Type: Apple MapKit
+[DataService instance] getLocationsWithLocation:(myLocation) sessionKey:@"1234-5678-9101" completion:^(NSMutableArray *targetsArray, NSError *error) {
+        NSLog(@"%@", targetsArray);
+}];
 
-In the following example we’ll show you how to can create a Hangit Offers Map to visually monitor Offers based on the users current location.
+```
 
-Add the MapModule to your class
+<h2>HangIt Places Map</h2>
 
-    @property (nonatomic, strong) MapManager * mapManager;
+You can implement the HangIt Places Map and display it on your View Controller, to enable users to see a map with all the HangIt Places nearby.
 
-In our example, we have used the ViewController.m class for simplicity; you can create the MapModule on any class in your project.
+To place the HangIt Places map on your View Controller, implement the `MapManager` method as part of the `ViewController.m` sub class, or other custom sub-class.   The implementation is described below:
 
-And Implement the Hanigt MapManager
+<h3>Implementing the Service</h3>
 
-    self.mapManager = [[MapManager alloc] initWithNibName:@"MapManager" bundle:[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"HangitSDKResources" ofType:@"bundle"]]];
+```objective-c
+self.mapManager = [[MapManager alloc] initWithNibName:@"MapManager"
+        bundle:[NSBundle bundleWithPath:[[NSBundle mainBundle]
+        pathForResource:@"HangitSDKResources" ofType:@"bundle"]]];
 
-    /* 1. Add the map to the current view and define the frame parameters */
+/* 1. Add the map to the current view and define the frame parameters */
 
-    self.mapManager.view.frame = CGRectMake(0,0,320,200);
+self.mapManager.view.frame = CGRectMake(0,0,320,200);
 
-    self.mapManager.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+self.mapManager.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 
-    [self.view addSubview:self.mapManager.view];
+[self.view addSubview:self.mapManager.view];
+```
 
-This code has placed the Offers Map on your view controller. You can decide what size you would like the map frame rect to be in order to fit with the design of your app.
+<h2>HangIt  SDK Settings View</h2>
 
-In the following example we’ll show you how to can create a Hangit Settings UITableView to display the SDK settings.
+You can display the HangIt SDK Settings on your View Controller.  You can decide what size you would like the table view frame rect to be, in order to fit with the design of your app.
 
-    @property (nonatomic, strong) SettingsController * settingsController;
+You will need to implement the `SettingsController` method in your custom sub-class of [UIViewController](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIViewController_Class/#//apple_ref/occ/instm/UIViewController/viewDidLoad)
 
-And Implement the Hangit Settings View
+<h3>Implementing the Service</h3>
 
-    self.settingsController = [[SettingsController alloc] initWithNibName:@"SettingsController"
-        bundle:[NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"HangitSDKResources" ofType:@"bundle"]]];
+```objective-c
+@property (nonatomic, strong) SettingsController * settingsController;
+```
 
-    /* 1. Add the UITableView to the current view and define the frame parameters */
+```objective-c
+self.settingsController = [[SettingsController alloc] initWithNibName:@"SettingsController"
+    bundle:[NSBundle bundleWithPath:[[NSBundle mainBundle]
+    pathForResource:@"HangitSDKResources" ofType:@"bundle"]]];
 
-    self.settingsController.view.frame = CGRectMake(0,0,320,200);
+/* 1. Add the UITableView to the current view and define the frame parameters */
 
-    self.settingsController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+self.settingsController.view.frame = CGRectMake(0,0,320,200);
 
-    [self.view addSubview:self.settingsController.view];
+self.settingsController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 
-This code has placed the Settings Controller on your view controller. You can decide what size you would like the table view frame rect to be in order to fit with the design of your app.
+[self.view addSubview:self.settingsController.view];
+```

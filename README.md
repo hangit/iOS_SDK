@@ -1,7 +1,7 @@
-HangIt SDKs
+HangIt iOS SDK
 ===========
 
-Looking to integrate with a HangIt SDK or Plugin? Everything you need is here.
+Looking to integrate with the HangIt iOS SDK? Everything you need is here.
 
 Check List
 -------

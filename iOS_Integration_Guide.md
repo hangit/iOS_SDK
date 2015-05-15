@@ -5,25 +5,23 @@
 
 You can use the HangIt platform to leverage location awareness for your iOS application.  
 
-The HangIt SDK monitors and records device location and triggers events when the boundary of a targeted location is crossed.
-
-The SDK also delivers local push notifications and displays rich messages you have configured in HangIt's Campaign Portal.
-
-The SDK allows your application to observe these events and deep link back into the application.
+ - The HangIt SDK monitors and records device location and triggers events when the boundary of a targeted location is crossed.
+ - The SDK also delivers local push notifications and displays rich messages you have configured in HangIt's Campaign Portal.
+ - The SDK allows your application to observe these events and deep link back into the application.
 
 ![enter image description here](https://lh3.googleusercontent.com/-3v0YFIrrfVY/VUEys0RemPI/AAAAAAAAA3g/TSzazAEXpT8/s0/hangit.png "hangit.png")
 
-There are three basic implementation of the Hangit SDK. Each provides a different level of customization for the developer.
+There are three basic implementation of the HangIt SDK, indicated in grey below. Each provides a different level of customization for the developer.
 
  1. Full Message Flow ** RECOMMENDED **
- 2. Alert Notification Only
+ 2. Local Notification Only
  3. Capture the Trigger on the Location Event Only
 
 ![enter image description here](https://lh3.googleusercontent.com/-Xsf4iDY30-o/VVDwY9-VDSI/AAAAAAAAA4Y/Gp6B51XOvII/s0/Flow+-+Full+Service.png "Flow - Full Service.png")
 
-The flow chart above illustrates a full message flow which presents a local event trigger to your app, initiates a local push notification to the user, and loads the "rich" Hangit event or offer.  It is also possible to only implement the event trigger and local push notification, or simply the event notification to the app.  
+The flow chart above illustrates a full message flow which presents a local event trigger to your app, initiates a local push notification to the user, and loads a "rich" message.  It is also possible to only implement the event trigger and local push notification, or simply the event notification to the app.  
 
-This SDK will cover the fastest way to get started with Hangit using event trigger only, and will also cover the full message flow in later sections.
+This SDK will cover the fastest way to get started with HangIt using event trigger only, and will also cover the full message flow in later sections.
 
 
 <h2> Getting Started</h2>
@@ -222,7 +220,9 @@ The Hangit SDK Provides other value-added services in support of your applicatio
 
 <h2>Local Push Notifications</h2>
 
-If you leverage the Hangit location updates to send push notifications to your users, you can leverage the Hangit SDK, to implement a callback method `didreceiveNotification` in your app's `AppDelegate.m` class.  It will receive the callback that a HangIt location notification has been consumed.  See the sample below for the implementation:
+If you leverage the Hangit location updates to send push notifications to your users, you can leverage the Hangit SDK to implement a callback method `didreceiveNotification` in your app's `AppDelegate.m` class.  It will receive the callback that a HangIt location notification has been consumed.
+
+See the sample below for the implementation:
 
 ```objective-c
 /* Hangit AppDelegate NotificationManager Requirement */
@@ -265,7 +265,7 @@ You may want to have a deep-link back into the application after an alert notifi
 
 You can setup your app to consume HangIt events and offers via the SDK.
 
-HangIt campaigns include events tied to specific location or "place" that can include rich messages to the user and deep links back to your apps.  HangIt campaigns are provisioned in the HangIt Portal.
+HangIt campaigns include events tied to specific locations or "places" that can include rich messages to the user and deep links back to your apps.  HangIt campaigns are provisioned in the HangIt Portal.
 
 HangIt offers are rich messages which can be presented to users when they enter the location bounding area.  The HangIt rich messages are provisioned in the HangIt portal and consist of images, videos or html5 micro sites.
 
@@ -311,7 +311,7 @@ self.mapManager.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIView
 [self.view addSubview:self.mapManager.view];
 ```
 
-<h2>HangIt  SDK Settings View</h2>
+<h2>HangIt SDK Settings View</h2>
 
 You can display the HangIt SDK Settings on your View Controller.  You can decide what size you would like the table view frame rect to be, in order to fit with the design of your app.
 

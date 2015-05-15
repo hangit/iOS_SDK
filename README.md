@@ -1,6 +1,5 @@
 HangIt SDKs
 ===========
-----------
 
 Looking to integrate with a HangIt SDK or Plugin? Everything you need is here.
 

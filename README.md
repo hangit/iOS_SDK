@@ -28,7 +28,7 @@ This SDK will cover the fastest way to get started with Hangit using event trigg
 
 <h2> Getting Started</h2>
 
->**Latest Version:** The latest version of the HangIt iOS SDK Framework is 1.2.1 and was released May, 13th 2015.
+>**Latest Version:** The latest version of the HangIt iOS SDK Framework is 1.2.2 and was released May, 15th 2015.
 
 >**Warning:** You will not be able to monitor changes for CoreMotion using the Simulator.  You will need to test and run your project on a real device.
 

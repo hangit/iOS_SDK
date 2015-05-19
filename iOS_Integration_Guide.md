@@ -9,8 +9,6 @@ You can use the HangIt platform to leverage location awareness for your iOS appl
  - The SDK also delivers local push notifications and displays rich messages you have configured in HangIt's Campaign Portal.
  - The SDK allows your application to observe these events and deep link back into the application.
 
-![enter image description here](https://lh3.googleusercontent.com/-3v0YFIrrfVY/VUEys0RemPI/AAAAAAAAA3g/TSzazAEXpT8/s0/hangit.png "hangit.png")
-
 There are three basic implementation of the HangIt SDK, indicated in grey below. Each provides a different level of customization for the developer.
 
  1. Full Message Flow ** RECOMMENDED **

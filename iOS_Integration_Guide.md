@@ -9,7 +9,9 @@ You can use the HangIt platform to leverage location awareness for your iOS appl
  - The SDK also delivers local push notifications and displays rich messages you have configured in HangIt's Campaign Portal.
  - The SDK allows your application to observe these events and deep link back into the application.
 
-There are three basic implementation of the HangIt SDK, indicated in grey below. Each provides a different level of customization for the developer.
+<h2>Implementations</h2>
+
+There are three basic implementations of the HangIt SDK, indicated in grey below. Each provides a different level of customization for the developer.
 
  1. Full Message Flow ** RECOMMENDED **
  2. Local Notification Only
@@ -22,7 +24,7 @@ The flow chart above illustrates a full message flow which presents a local even
 This SDK will cover the fastest way to get started with HangIt using event trigger only, and will also cover the full message flow in later sections.
 
 
-<h2> Getting Started</h2>
+<h2>Getting Started</h2>
 
 >**Latest Version:** The latest version of the HangIt iOS SDK Framework is 1.2.2 and was released May, 15th 2015.
 

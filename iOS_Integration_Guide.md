@@ -17,11 +17,11 @@ There are three basic implementations of the HangIt SDK, indicated in grey below
  2. Local Notification Only
  3. Capture the Trigger on the Location Event Only
 
+This iOS Integration Guide will cover the fastest way to get started with HangIt using the Event Trigger only (option #3 above), and will cover the full message flow in later sections.
+
 ![enter image description here](https://lh3.googleusercontent.com/-Xsf4iDY30-o/VVDwY9-VDSI/AAAAAAAAA4Y/Gp6B51XOvII/s0/Flow+-+Full+Service.png "Flow - Full Service.png")
 
-The flow chart above illustrates a full message flow which presents a local event trigger to your app, initiates a local push notification to the user, and loads a "rich" message.  It is also possible to only implement the event trigger and local push notification, or simply the event notification to the app.  
-
-This SDK will cover the fastest way to get started with HangIt using event trigger only, and will also cover the full message flow in later sections.
+The flow chart above illustrates a full message flow which presents a local event trigger to your app, initiates a local push notification to the user, and loads a "rich" message.  It is also possible to only implement the event trigger and local push notification, or simply the event notification to the app.
 
 
 <h2>Getting Started</h2>

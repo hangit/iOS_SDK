@@ -1,5 +1,5 @@
 
-<h1>HangIt iOS SDK</h1>
+<h1>HangIt iOS SDK Integration Guide</h1>
 
 <h2>Overview</h2>
 

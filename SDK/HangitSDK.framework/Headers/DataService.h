@@ -45,5 +45,18 @@
                            completion:(void (^)(NSString * response,
                                                 NSError * error))completion;
 
+- (void)addDeviceTagWithSessionKey:(NSString *)sessionKey
+                         DeviceTag:(NSString *)deviceTag
+                    DeviceTagValue:(NSString *)deviceTagValue
+                          GroupTag:(NSString *)groupTag
+                        completion:(void (^)(NSString * response,
+                                             NSError * error))completion;
+
+- (void)deleteDeviceTagWithSessionKey:(NSString *)sessionKey
+                         DeviceTag:(NSString *)deviceTag
+                          GroupTag:(NSString *)groupTag
+                        completion:(void (^)(NSString * response,
+                                             NSError * error))completion;
+
 
 @end

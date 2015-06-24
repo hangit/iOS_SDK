@@ -13,7 +13,6 @@
 
 @interface LocationManager : NSObject <CLLocationManagerDelegate>
 {
-    
     UILocalNotification * localNotification;
     
     NSUserDefaults * prefs;
@@ -23,10 +22,6 @@
 @property (nonatomic, strong) OfferFullViewController * offerFullViewController;
 
 @property (retain, nonatomic) CMMotionActivityManager * motionActivityManager;
-
-@property (strong, nonatomic) NSTimer * updateTimer;
-
-@property (strong, nonatomic) NSTimer * logTimer;
 
 @property (strong, nonatomic) CLLocationManager * locationManager;
 
@@ -38,13 +33,15 @@
 
 @property (nonatomic, retain) NSMutableArray * logHistoryArray;
 
-@property (nonatomic, retain) NSMutableArray * logMotionArray;
-
 @property (nonatomic, retain) NSMutableArray * logTargetsArray;
 
 @property (nonatomic) BOOL presentNotifications;
 
 @property (nonatomic) BOOL presentOfferView;
+
+@property (nonatomic) BOOL deviceHasExited;
+
+@property (strong, nonatomic) NSTimer * queueMessageTimer;
 
 - (void)initLocation;
 

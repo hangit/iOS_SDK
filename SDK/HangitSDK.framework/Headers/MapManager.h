@@ -20,8 +20,6 @@
 
 @property (nonatomic, strong) OfferFullViewController * offerFullViewController;
 
-@property (nonatomic, strong) NSTimer * updateTimer;
-
 @property (nonatomic, assign) BOOL trackUser;
 
 @property (weak, nonatomic) IBOutlet MKMapView * mapView;

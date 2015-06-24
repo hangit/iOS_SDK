@@ -26,6 +26,7 @@
 
 @property (nonatomic, retain) NSString * alertText;
 
+@property (nonatomic, retain) UIActivityIndicatorView * activityIndicator;
 
 //@property (nonatomic, retain) NSString * offer_id;
 //

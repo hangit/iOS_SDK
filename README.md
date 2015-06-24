@@ -1,6 +1,6 @@
 HangIt iOS SDK
 ===========
-Version 1.2.3
+Version 1.2.4
 
 Looking to integrate with the HangIt iOS SDK? Everything you need is here.
 

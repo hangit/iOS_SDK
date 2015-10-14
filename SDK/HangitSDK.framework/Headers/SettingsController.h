@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "ContentController.h"
 #import "SubViewController.h"
+#import "SessionManager.h"
+#import <CoreLocation/CoreLocation.h>
 
-@interface SettingsController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
+@interface SettingsController : UIViewController <UITableViewDelegate, UITableViewDataSource, SessionManagerDelegate> {
     
     ContentController * contentController;
 
@@ -19,6 +21,10 @@
     NSUserDefaults * prefs;
     
 }
+
+@property (nonatomic, retain) SessionManager * sessionManager;
+
+@property (nonatomic, retain) NSString * sessionKey;
 
 @property (nonatomic, strong) IBOutlet UITableView * tableView;
 

@@ -18,7 +18,7 @@
 		</data>
 		<key>Headers/LocationManager.h</key>
 		<data>
-		NaFYbUvEZP43QmnSQvX6OiO7ZHU=
+		rb16VYx9UDM/KS2L6wMtb7mk4Lc=
 		</data>
 		<key>Headers/Logger.h</key>
 		<data>
@@ -30,15 +30,15 @@
 		</data>
 		<key>Headers/OfferFullViewController.h</key>
 		<data>
-		7kFcYn51mY84zDV9A+pcYQ6f5V4=
+		uN48+tnUsTzhTrfpbOC4qphoAPo=
 		</data>
 		<key>Headers/SessionManager.h</key>
 		<data>
-		V1EUjMcegEfszk7tSSu6QjXnrxY=
+		+pjeEeqAArkIUDD7zLL+sO73g+c=
 		</data>
 		<key>Headers/SettingsController.h</key>
 		<data>
-		Ic2IPZKxBJZbRmhpvNGl7IN0h1w=
+		bopItLeeN5roFbRouSH1HpE83RM=
 		</data>
 		<key>Headers/SubViewController.h</key>
 		<data>
@@ -46,11 +46,19 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		N/DRQSuoK843YnrwVrY1P6e7HQg=
+		X4hPTIqfl5xOn3Ur2y5Eob/8u30=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
 		n+L79djLhLlpSFnPYb1yhwvIEqM=
+		</data>
+		<key>ProgressHUD.bundle/progresshud-error@2x.png</key>
+		<data>
+		TidljxvBtawQRR1ReUa7/wF1sp0=
+		</data>
+		<key>ProgressHUD.bundle/progresshud-success@2x.png</key>
+		<data>
+		SCYfSuQkXi++HbUCnvveWTagC3A=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -69,7 +77,7 @@
 		</data>
 		<key>Headers/LocationManager.h</key>
 		<data>
-		NaFYbUvEZP43QmnSQvX6OiO7ZHU=
+		rb16VYx9UDM/KS2L6wMtb7mk4Lc=
 		</data>
 		<key>Headers/Logger.h</key>
 		<data>
@@ -81,15 +89,15 @@
 		</data>
 		<key>Headers/OfferFullViewController.h</key>
 		<data>
-		7kFcYn51mY84zDV9A+pcYQ6f5V4=
+		uN48+tnUsTzhTrfpbOC4qphoAPo=
 		</data>
 		<key>Headers/SessionManager.h</key>
 		<data>
-		V1EUjMcegEfszk7tSSu6QjXnrxY=
+		+pjeEeqAArkIUDD7zLL+sO73g+c=
 		</data>
 		<key>Headers/SettingsController.h</key>
 		<data>
-		Ic2IPZKxBJZbRmhpvNGl7IN0h1w=
+		bopItLeeN5roFbRouSH1HpE83RM=
 		</data>
 		<key>Headers/SubViewController.h</key>
 		<data>
@@ -98,6 +106,14 @@
 		<key>Modules/module.modulemap</key>
 		<data>
 		n+L79djLhLlpSFnPYb1yhwvIEqM=
+		</data>
+		<key>ProgressHUD.bundle/progresshud-error@2x.png</key>
+		<data>
+		TidljxvBtawQRR1ReUa7/wF1sp0=
+		</data>
+		<key>ProgressHUD.bundle/progresshud-success@2x.png</key>
+		<data>
+		SCYfSuQkXi++HbUCnvveWTagC3A=
 		</data>
 	</dict>
 	<key>rules</key>

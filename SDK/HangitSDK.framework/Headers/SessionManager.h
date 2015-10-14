@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <AdSupport/ASIdentifierManager.h>
 #import <SystemConfiguration/SystemConfiguration.h>
+#import "LocationManager.h"
 
 @protocol SessionManagerDelegate <NSObject>
 
@@ -33,15 +34,29 @@
 
 @property (nonatomic, weak) id <SessionManagerDelegate>delegate;
 
+@property (nonatomic, strong) LocationManager * lm;
+
 @property (nonatomic, assign) BOOL isReachable;
+
+@property (nonatomic) NSInteger sessionCount;
 
 - (NSString *)deviceId;
 
 - (NSString *)startSession:(NSString *)apiKey;
 
-- (NSString *)startSessionUsingLocation:(NSString *)apiKey;
+//@DEPRECATED
+//- (NSString *)startSessionUsingLocation:(NSString *)apiKey;
 
-- (void)stopSession;
+//@DEPRECATED
+//- (void)stopSession;
+
+- (void)startLocation;
+
+- (void)stopLocation;
+
+- (void)presentNotification:(BOOL)present;
+
+- (BOOL)isLocationEnabled;
 
 - (BOOL)checkNetworkStatus:(NSNotification *)notif;
 

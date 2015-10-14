@@ -9,19 +9,22 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 #import "OfferFullViewController.h"
-#import <CoreMotion/CoreMotion.h>
 
-@interface LocationManager : NSObject <CLLocationManagerDelegate>
-{
+@interface LocationManager : NSObject <CLLocationManagerDelegate> {
+
     UILocalNotification * localNotification;
     
     NSUserDefaults * prefs;
     
+    int locationCount;
+    
+    BOOL updatingLocationFlag;
+    
+    BOOL locationServiceRunning;
+    
 }
 
 @property (nonatomic, strong) OfferFullViewController * offerFullViewController;
-
-@property (retain, nonatomic) CMMotionActivityManager * motionActivityManager;
 
 @property (strong, nonatomic) CLLocationManager * locationManager;
 
@@ -35,18 +38,31 @@
 
 @property (nonatomic, retain) NSMutableArray * logTargetsArray;
 
+@property (nonatomic, retain) NSMutableArray * logLocationsArray;
+
 @property (nonatomic) BOOL presentNotifications;
 
 @property (nonatomic) BOOL presentOfferView;
 
+@property (nonatomic) BOOL withLocation;
+
 @property (nonatomic) BOOL deviceHasExited;
 
 @property (strong, nonatomic) NSTimer * queueMessageTimer;
+
+@property (strong, nonatomic) NSTimer * checkTimer;
+
+@property (strong, nonatomic) NSTimer * updateTimer;
+
+@property (strong, nonatomic) NSTimer * logTimer;
+
+@property (strong, nonatomic) NSMutableArray * placesInTimer;
 
 - (void)initLocation;
 
 - (void)startMonitoringLocation;
 
 - (void)stopMonitoringLocation;
+
 
 @end

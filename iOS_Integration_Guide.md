@@ -178,7 +178,17 @@ self.sessionManager.presentNotifications = YES; // If you DO NOT want to display
 //Present Rich Messages To Users
 self.sessionManager.presentOfferView = YES;  // If you DO NOT want to display the Rich Message, set to NO
 
-self.sessionKey = [self.sessionManager startSessionUsingLocation:@"YOURAPIKEY"];
+//Start a new session
+self.sessionKey = [self.sessionManager startSession:@"YOURAPIKEY"];
+
+//Enable Location Deals
+[self.sessionManager startLocation];
+
+//Disable Location Deals
+[self.sessionManager stopLocation];
+
+//Check if the user has location services for your app Never/InUse/Always
+[self.sessionManager isLocationEnabled];
 
 //Optionally you can stop the Hangit session in your app using the following method at anytime to disable location tracking and notifications
 

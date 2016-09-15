@@ -10,6 +10,7 @@
 #import <AdSupport/ASIdentifierManager.h>
 #import <SystemConfiguration/SystemConfiguration.h>
 #import "LocationManager.h"
+#import "WalletController.h"
 
 @protocol SessionManagerDelegate <NSObject>
 
@@ -27,6 +28,8 @@
     NSString * adid;
     
     NSUserDefaults * prefs;
+
+    WalletController * walletController;
     
 }
 
@@ -53,6 +56,10 @@
 - (void)startLocation;
 
 - (void)stopLocation;
+
+- (void)clearDevice;
+
+- (void)openWallet;
 
 - (void)presentNotification:(BOOL)present;
 

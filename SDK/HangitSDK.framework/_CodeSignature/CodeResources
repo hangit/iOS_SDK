@@ -10,15 +10,19 @@
 		</data>
 		<key>Headers/DataService.h</key>
 		<data>
-		TLCRDOnBVZjx8ZCjXog91Hoo6FA=
+		YjdVv9mU8UioJietUrCo/kEP8eY=
 		</data>
 		<key>Headers/HangitSDK.h</key>
 		<data>
-		GfvfkjteMmpc6lBtgxx77oesNn4=
+		bJRaCxU0g9ge67N9Vg1+FyD8ek8=
 		</data>
 		<key>Headers/LocationManager.h</key>
 		<data>
-		rb16VYx9UDM/KS2L6wMtb7mk4Lc=
+		XNrsLpIG2MMsJYOcMzAV+Hvh5go=
+		</data>
+		<key>Headers/LocationMsgController.h</key>
+		<data>
+		bpxwCgWp+U+i01+qmSnlX5ujIRo=
 		</data>
 		<key>Headers/Logger.h</key>
 		<data>
@@ -30,23 +34,27 @@
 		</data>
 		<key>Headers/OfferFullViewController.h</key>
 		<data>
-		uN48+tnUsTzhTrfpbOC4qphoAPo=
+		g1KMoLZIWJ3lGNidsg/yIwoKvog=
 		</data>
 		<key>Headers/SessionManager.h</key>
 		<data>
-		+pjeEeqAArkIUDD7zLL+sO73g+c=
+		Jz1KJ+6r2zBYDoFzzxzvrVSsVdU=
 		</data>
 		<key>Headers/SettingsController.h</key>
 		<data>
-		bopItLeeN5roFbRouSH1HpE83RM=
+		lFNXoDExCXscFzZndOhqKCL4EwE=
 		</data>
 		<key>Headers/SubViewController.h</key>
 		<data>
 		tbcnWNAQZ3Wf57L///4NbXRKjAY=
 		</data>
+		<key>Headers/WalletController.h</key>
+		<data>
+		quOaObZkVqQ/6zCnAbQ8HMYC1ck=
+		</data>
 		<key>Info.plist</key>
 		<data>
-		X4hPTIqfl5xOn3Ur2y5Eob/8u30=
+		LSddknmKHLn7JWTanDeYX7r706c=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -59,62 +67,190 @@
 		<key>ProgressHUD.bundle/progresshud-success@2x.png</key>
 		<data>
 		SCYfSuQkXi++HbUCnvveWTagC3A=
+		</data>
+		<key>wallet.png</key>
+		<data>
+		OCFozUU5LyDboZCEApGaWBCR8WE=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
 		<key>Headers/ContentController.h</key>
-		<data>
-		DYiSD/LDbRBrlKHDe/5t2vH98gU=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			DYiSD/LDbRBrlKHDe/5t2vH98gU=
+			</data>
+			<key>hash2</key>
+			<data>
+			sfOW/30pJt3dL9OWb1rT77owaXrsIUZSMyZy1Yq3qN0=
+			</data>
+		</dict>
 		<key>Headers/DataService.h</key>
-		<data>
-		TLCRDOnBVZjx8ZCjXog91Hoo6FA=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			YjdVv9mU8UioJietUrCo/kEP8eY=
+			</data>
+			<key>hash2</key>
+			<data>
+			Y28tU8LI4IUkE6SVX3nbVmf5ILyWig8pBDeC0ah3mLQ=
+			</data>
+		</dict>
 		<key>Headers/HangitSDK.h</key>
-		<data>
-		GfvfkjteMmpc6lBtgxx77oesNn4=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			bJRaCxU0g9ge67N9Vg1+FyD8ek8=
+			</data>
+			<key>hash2</key>
+			<data>
+			XdCRsgCvqCXSh1J8XNqG5DGgbf8rr6Ih+7z4ORFBgjk=
+			</data>
+		</dict>
 		<key>Headers/LocationManager.h</key>
-		<data>
-		rb16VYx9UDM/KS2L6wMtb7mk4Lc=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			XNrsLpIG2MMsJYOcMzAV+Hvh5go=
+			</data>
+			<key>hash2</key>
+			<data>
+			vOxeku5Gsy9wtqUwTSx78fQnLnYLnAFgTWbCeGv7lRM=
+			</data>
+		</dict>
+		<key>Headers/LocationMsgController.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			bpxwCgWp+U+i01+qmSnlX5ujIRo=
+			</data>
+			<key>hash2</key>
+			<data>
+			ShngSe4qW0glzj1J6ldNQLBV8GDltORRgvMF3/oEt8o=
+			</data>
+		</dict>
 		<key>Headers/Logger.h</key>
-		<data>
-		JRhinmqR3IPQBO7hanep92qQ2TU=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			JRhinmqR3IPQBO7hanep92qQ2TU=
+			</data>
+			<key>hash2</key>
+			<data>
+			pdqR+lhNfxmVkEgKUG5Hpnb/qULNd/Cn8CTvzsQPQvk=
+			</data>
+		</dict>
 		<key>Headers/MapManager.h</key>
-		<data>
-		gf+Wefzd9esiPaP1HpAIENRikG0=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			gf+Wefzd9esiPaP1HpAIENRikG0=
+			</data>
+			<key>hash2</key>
+			<data>
+			0is+Lukt0rbfKYVWQ/cX4+bfvW7aiVW0JYJaheLH0Po=
+			</data>
+		</dict>
 		<key>Headers/OfferFullViewController.h</key>
-		<data>
-		uN48+tnUsTzhTrfpbOC4qphoAPo=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			g1KMoLZIWJ3lGNidsg/yIwoKvog=
+			</data>
+			<key>hash2</key>
+			<data>
+			YGtwCITJYEO2kXeyp9c/hlm3OOSw4jB8YUXXM8t5lZM=
+			</data>
+		</dict>
 		<key>Headers/SessionManager.h</key>
-		<data>
-		+pjeEeqAArkIUDD7zLL+sO73g+c=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			Jz1KJ+6r2zBYDoFzzxzvrVSsVdU=
+			</data>
+			<key>hash2</key>
+			<data>
+			j+tkQSvoeFUHWCH6+mUL/m92CsJytSthrwNiU/XwEDU=
+			</data>
+		</dict>
 		<key>Headers/SettingsController.h</key>
-		<data>
-		bopItLeeN5roFbRouSH1HpE83RM=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			lFNXoDExCXscFzZndOhqKCL4EwE=
+			</data>
+			<key>hash2</key>
+			<data>
+			BPw8f/GxI6p+On33ra9SIH8YWUR7/RLNUr5HYq+jBIM=
+			</data>
+		</dict>
 		<key>Headers/SubViewController.h</key>
-		<data>
-		tbcnWNAQZ3Wf57L///4NbXRKjAY=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			tbcnWNAQZ3Wf57L///4NbXRKjAY=
+			</data>
+			<key>hash2</key>
+			<data>
+			+7tVvnDgIjrYcT7FM7nuTPprbKhOdRDJtHfuVYZnnKQ=
+			</data>
+		</dict>
+		<key>Headers/WalletController.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			quOaObZkVqQ/6zCnAbQ8HMYC1ck=
+			</data>
+			<key>hash2</key>
+			<data>
+			V8Uvxg9C+rRvnNTEqbPbIpYkFM34AMw0Gl748BOusoY=
+			</data>
+		</dict>
 		<key>Modules/module.modulemap</key>
-		<data>
-		n+L79djLhLlpSFnPYb1yhwvIEqM=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			n+L79djLhLlpSFnPYb1yhwvIEqM=
+			</data>
+			<key>hash2</key>
+			<data>
+			q3KsjcOuFV+iGuCyyGv2u2da1yKf/LVLBhTL47K9DQM=
+			</data>
+		</dict>
 		<key>ProgressHUD.bundle/progresshud-error@2x.png</key>
-		<data>
-		TidljxvBtawQRR1ReUa7/wF1sp0=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			TidljxvBtawQRR1ReUa7/wF1sp0=
+			</data>
+			<key>hash2</key>
+			<data>
+			+TiMp/Zv80nW2eD10vj2rvIfbN4viVxIPBm7d74ywgs=
+			</data>
+		</dict>
 		<key>ProgressHUD.bundle/progresshud-success@2x.png</key>
-		<data>
-		SCYfSuQkXi++HbUCnvveWTagC3A=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			SCYfSuQkXi++HbUCnvveWTagC3A=
+			</data>
+			<key>hash2</key>
+			<data>
+			+v82W7lFz7eNbvJ0yHCC+tLiLMmxtKhI2RIYoa7QEuU=
+			</data>
+		</dict>
+		<key>wallet.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			OCFozUU5LyDboZCEApGaWBCR8WE=
+			</data>
+			<key>hash2</key>
+			<data>
+			h3drB2vrslm1gKMp3kHnphkg2CgiBqUaVPT09a4kcEg=
+			</data>
+		</dict>
 	</dict>
 	<key>rules</key>
 	<dict>

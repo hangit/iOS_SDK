@@ -58,5 +58,9 @@
                         completion:(void (^)(NSString * response,
                                              NSError * error))completion;
 
+- (void)getEvent:(NSString *)eventId
+       DeviceId:(NSString *)deviceId
+      completion:(void (^)(NSDictionary * response,
+                           NSError * error))completion;
 
 @end

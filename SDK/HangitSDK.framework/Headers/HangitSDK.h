@@ -28,3 +28,5 @@ FOUNDATION_EXPORT const unsigned char HangitSDKVersionString[];
 #import <HangitSDK/ContentController.h>
 #import <HangitSDK/SubViewController.h>
 #import <HangitSDK/OfferFullViewController.h>
+#import <HangitSDK/WalletController.h>
+#import <HangitSDK/LocationMsgController.h>

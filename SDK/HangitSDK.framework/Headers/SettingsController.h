@@ -11,14 +11,21 @@
 #import "SubViewController.h"
 #import "SessionManager.h"
 #import <CoreLocation/CoreLocation.h>
+#import "WalletController.h"
 
-@interface SettingsController : UIViewController <UITableViewDelegate, UITableViewDataSource, SessionManagerDelegate> {
+#import <SafariServices/SafariServices.h>
+
+@interface SettingsController : UIViewController <UITableViewDelegate, UITableViewDataSource, SessionManagerDelegate, SFSafariViewControllerDelegate> {
     
     ContentController * contentController;
 
     SubViewController * subViewController;
     
+    WalletController * walletController;
+
     NSUserDefaults * prefs;
+    
+    SFSafariViewController * sfvc;
     
 }
 

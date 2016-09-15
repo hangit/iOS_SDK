@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 #import "OfferFullViewController.h"
+#import "LocationMsgController.h"
 
 @interface LocationManager : NSObject <CLLocationManagerDelegate> {
 
@@ -21,6 +22,8 @@
     BOOL updatingLocationFlag;
     
     BOOL locationServiceRunning;
+    
+    LocationMsgController * locationMsgController;
     
 }
 
@@ -47,6 +50,8 @@
 @property (nonatomic) BOOL withLocation;
 
 @property (nonatomic) BOOL deviceHasExited;
+
+@property (nonatomic) BOOL eventBeingChecked;
 
 @property (strong, nonatomic) NSTimer * queueMessageTimer;
 
